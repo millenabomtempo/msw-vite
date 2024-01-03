@@ -1,6 +1,8 @@
 export default {
   preset: 'ts-jest',
   testEnvironment: 'jest-environment-jsdom',
+  setupFilesAfterEnv: ['./src/setupTest.ts'],
+  setupFiles: ['./src/jest.polyfills.ts'],
   transform: {
     '^.+\\.tsx?$': [
       'ts-jest',
@@ -22,4 +24,7 @@ export default {
   moduleNameMapper: {
       '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/test/__ mocks __/fileMock.js',
   },
+  testEnvironmentOptions: {
+    customExportConditions: [''],
+  }
 }
